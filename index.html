@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+ 
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T84J5VK');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q45XWY72H3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q45XWY72H3');
+</script> 
+ 
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id='UA-254114893-1"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-254114893-1');
+ </script>
+ 
+ </head>
+ <!-- Loads <model-viewer> for modern browsers: -->
+ <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+  
+ <script nomodule="" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+ <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  <!-- The following libraries and polyfills are recommended to maximize browser support -->  
+  <!-- REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <!-- OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+  <script src="https://unpkg.com/intersection-observer/intersection-observer.js"></script>
+
+  <!-- OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+  <script src="https://unpkg.com/resize-observer-polyfill/dist/ResizeObserver.js"></script>
+ 
+ <script>
+      function Sync(selector, audioSelector) {
+        var modelViewer = document.querySelector(selector);
+        var sound = document.querySelector(audioSelector);
+        var playRequest = document.querySelector("#overlay");
+
+   sound.addEventListener("timeupdate", () => {
+          modelViewer.currentTime = sound.currentTime;
+          console.log("modelViewer time: " + modelViewer.currentTime);
+        });
+
+   sound.addEventListener("pause", () => {
+          modelViewer.pause();
+        });
+
+   sound.addEventListener("play", () => {
+          modelViewer.play();
+
+   playRequest.classList.add("hide");
+        });
+
+   document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState !== "visible") {
+            sound.pause();
+          }
+        });
+var promise = sound.play();
+        if (promise !== undefined) {
+          promise
+            .then(_ => {
+              console.log("Autoplay has worked");
+              playRequest.classList.add("hide");
+            })
+            .catch(error => {
+              // Show a "Play" button so that user can start playback.
+              console.log("Autoplay has not worked");
+
+   // show the modal dialogue to play this
+   playRequest.classList.remove("hide");
+            });
+        }
+
+   }  
+      function playNow() {
+        var playRequest = document.querySelector("#overlay");
+        playRequest.classList.add("hide");
+
+   var sound = document.querySelector("#sound");
+        sound.play();
+      }
+
+   function jumpTo(time) {
+        var sound = document.querySelector("#sound");
+        sound.currentTime = time;
+      }
+   </script>
+ 
+<script>
+/**
+* Function that registers a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var getOutboundLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+</script>
+
+<style> 
+ 
+.container {
+ column-count: 1;
+ column-width: 250px;
+ column-gap: 10px;
+}
+  .card {
+  break-inside: avoid;
+  background-color: #2c3d31;
+  border: 2px solid rgb(44, 61, 49);
+  padding: 10px;
+  margin: 0 0 1em 0;
+}
+<!--.card1 {
+  break-inside: avoid;
+  background-color: #2c3d31;
+  border: 2px solid rgb(44, 61, 49);
+  padding: 5px;
+  margin: 0 0 1em 0;
+} -->
+}
+  .stack-top{
+   z-index: 9;
+}
+ .marginauto {
+    margin: 10px auto 10px;
+    display: block;
+}
+ .centerImage
+{
+ text-align:center;
+ display:block;
+}
+
+a {
+        color: #2c3d31;
+      }
+ 
+ </style>
+
+<body bgcolor= #2c3d31>
+ 
+<body>
+
+<!--<h1>The column-count Property</h1> -->
+<!--<p>The column-count property defines the number of columns an element is divided into:</p> -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T84J5VK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+ <div class="container">
+ <div class="card">
+      <img class="marginauto" src="images/Alexan Access Logo No Bkgd25f.png" alt="Logo" style="max-width: 100%; max-height: 100%"> 
+      <h2 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Arial"> LIFE CONNECTED</p></h2></b>
+      <h2 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Arial"> LUXE BOUTIQUE APARTMENT HOMES</p></h2></b>
+      <h2 style="text-align: center;" markdown="1"><b style="color:#e79b6e;"><p style="font-family:Arial"> NOW OPEN</p></h2></b>
+     </div>
+     
+ <div class="card"> 
+     <model-viewer loading="eager" src="Models/camille resized 2.glb?sound=Sound/Camille Poolside Complete Audio Track_EditV3.mp3" camera-controls 
+                    camera-orbit="0deg 45deg 50%" autoplay animation-name="" id="model-viewer" id="reveal" exposure="1" shadow-intensity="1" ar ar-modes="scene-viewer webxr quick-look" 
+                    ios-src="Models/Completed File.usdz" alt="Access Pool" auto-rotate-delay="0" ar-scale="auto" slot= "progress-bar"
+                    style="z-index: 1; width: 100%; height: 480px; position: static; ">
+                    
+                    <button slot="ar-button" 
+                    style="z-index: 9; background-color: #FFFFFF; border-radius: 8px; border: 1 px solid white; position: absolute; top: 2px; right: 0; height: 40px; width: auto; ">
+
+                     👆 <b style="color:#0C2622;"><strong>EXPLORE AR HERE</strong></b></button>        
+               
+  </model-viewer>
+    </div>
+ 
+   <section class="attribution">
+        <div>
+          <span>
+            <h1 style="text-align: center;" markdown="1"><b style="color:#FFFFFF;"><p style="font-family:Avenir Next LT Pro">Find Camille on the AR Pool Tour</b>
+              <p align="center">
+              <span>
+              <audio controls autoplay loop id="sound">
+                <source src="Sound/Camille Poolside Complete Audio Track_EditV3.mp3"/>
+              </audio
+            ></span> 
+             </p>
+            </span>
+         </div>
+   </section>
+   <script>    
+        window.addEventListener("load", () => {
+          Sync("#model-viewer", "#sound");
+        });
+      </script>   
+   <div class="centerImage">   
+   <button onclick="location.href='https://avertek.github.io/Access-Camille/'" type="button" slot="" 
+                    style="z-index: 9; background-color: #e79b6e; border-radius: 8px; border: 1 px solid white; position: static; height: 35px; width: auto;
+                          color:#000000; font-family:Avenir Next LT Pro"><strong>MEET CAMILLE</strong>
+       </button> 
+         </div>
+         <br><br>
+     
+  <div class="card">
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="https://avertek.github.io/Access-Floorplan/?utm_source=AVERtek&utm_medium=AR" onclick="getOutboundLink('https://avertek.github.io/Access-Floorplan/?utm_source=AVERtek&utm_medium=AR');return false;"><b style="color:#e79b6e;"><b> <ins>CAMILLE'S 4D/AR FLOORPLAN</ins></b></b></h2></a></p></a></h2>
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="https://alexanaccess.com/amenities/?utm_source=AVERtek&utm_medium=AR" onclick="getOutboundLink('https://alexanaccess.com/amenities/?utm_source=AVERtek&utm_medium=AR');return false;"><b style="color:#e79b6e;"><b> <ins>CURATED AMENITIES</ins></b></b></h2></a></p></a></h2>
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="https://alexanaccess.com/neighborhood/?utm_source=AVERtek&utm_medium=AR" onclick="getOutboundLink('https://alexanaccess.com/neighborhood/?utm_source=AVERtek&utm_medium=AR'); return false;"><b style="color:#e79b6e;"><b> <ins>CENTERED IN THE NORTHWEST</ins></b></h2></a></p></a>
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="https://alexanaccess.securecafe.com/onlineleasing/alexan-access/guestlogin.aspx?propleadsource_1638413=portal/?utm_source=AVERtek&utm_medium=AR" onclick="getOutboundLink('https://alexanaccess.securecafe.com/onlineleasing/alexan-access/guestlogin.aspx?propleadsource_1638413=portal/?utm_source=AVERtek&utm_medium=AR'); return false;"><b style="color:#e79b6e;"><b> <ins>APPLY TODAY</ins></b></h2></a></p></a> 
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="mailto:AlexanAccess.AVERtek.SaresRegis@aptleasing.info?Subject=Requesting20%VIP20%Tour20%Alexan Access" onclick="getOutboundLink('mailto:AlexanAccess.AVERtek.SaresRegis@aptleasing.info?Subject=Requesting VIP Tour Alexan Access;'); return false;"><b style="color:#e79b6e;"><b> <ins>EMAIL US</ins></b></h2></a></p></a>   
+     <h2 style="text-align: center;" markdown="1"><p style="font-family:Arial"><a href="tel:+18335129823"><b style="color:#e79b6e;"><ins>833-512-9823</ins></a></b></b></p></h2>
+   <br>
+     <h2 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Arial"> 2927 Alderwood Mall Blvd. Lynwood, WA. 98036</p></h2></b>
+   </div>
+   
+   <div class="card">
+    <h2 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Arial">4D Augmented Reality on Mobile Device!</p></h2></b>
+    <!--<img class="marginauto" src="images/AR Instructions wht-jade3.png" style="max-width: 100%; height: 200px">-->
+    <img class="marginauto" src="images/AR Instructions wht-trans3.png" style="max-width: 100%; height: 350px"> 
+    <h2 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Arial">Share with Family & Friends!</p></h2></b>
+    </style>  
+   </div>
+
+    <div class="card">
+    
+    </div>
+    <br>
+     <h4 style="text-align: center;" markdown="1"><b style="color:#ffffff;"><p style="font-family:Avenir Next LT Pro"><em> if AR button does not appear on mobile device, use another browser</em></p></h4></b>
+     
+     <h4 style="text-align: center;" markdown="1"><a href="https://avertek.net/" onclick="getOutboundLink('https://avertek.net/');
+       return false;"><b style="color:#0070C0;"><p style="font-family:Avenir Next LT Pro"><ins>Learn More About AVERtek's XR-NOW</ins></p></a></h4></b>
+    </div>
+
+
+</div>
+</body>
+</html>
